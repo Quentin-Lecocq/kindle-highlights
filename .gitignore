@@ -1,0 +1,25 @@
+# third-party readers downloaded by setup.sh
+vendor/
+
+# copies of the Kindle: books (copyrighted) and the annotation database (account ID + personal highlights)
+documents/
+ksdk/
+system/
+*.db
+*.sdr/
+*.kfx
+*.azw
+*.azw3
+*.mobi
+*.tgz
+
+# exports
+out/
+My Clippings.txt
+highlights.json
+report.txt
+*Highlights*.md
+Surlignages*.md
+
+__pycache__/
+.DS_Store
