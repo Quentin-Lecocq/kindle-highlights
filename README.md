@@ -4,7 +4,7 @@ Recover your Kindle highlights and notes as text when your Kindle no longer give
 
 ## The problem
 
-On some recent Kindles, `documents/My Clippings.txt`, the plain-text file every highlight tool relied on, is no longer written. This has been reported from firmware 5.19 and was observed on a Kindle Paperwhite in October 2026. Amazon has not documented the change, and not every device behaves this way.
+On some recent Kindles, `documents/My Clippings.txt`, the plain-text file every highlight tool relied on, is no longer written. This has been reported from firmware 5.19 (see [KFX-Highlights](https://github.com/aakar/KFX-Highlights)) and was observed on a Kindle Paperwhite running firmware 5.20.1 in October 2026. Amazon has not documented the change, and not every device behaves this way.
 
 **Check first:** if your Kindle still has an up-to-date `My Clippings.txt`, use that file. You don't need this tool.
 
@@ -66,7 +66,7 @@ Claude will ask you to copy the two folders from the Kindle (or do it itself if 
 
 - **The book file must still be on the Kindle.** If you removed it, the highlight positions survive but the text cannot be recovered: the book is reported as `MISSING`. Download it again on the Kindle and re-run.
 - Locations are approximate (`position / 150`), close to what the Kindle displays.
-- Tested on one device: a Kindle Paperwhite, in October 2026. Other models and firmware versions may differ, and reports are welcome. Amazon may move things again; if highlights stop appearing, look for a new database under `system/ksdk/`.
+- Tested on one device: a Kindle Paperwhite on firmware 5.20.1, in October 2026. Your firmware version is in `system/version.txt` on the Kindle. Other models and firmware versions may differ, and reports are welcome. Amazon may move things again; if highlights stop appearing, look for a new database under `system/ksdk/`.
 
 ## Credits
 

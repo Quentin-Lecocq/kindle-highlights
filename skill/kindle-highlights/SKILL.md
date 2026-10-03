@@ -9,7 +9,7 @@ Recover the highlights and notes stored on a Kindle e-reader and hand them to th
 
 ## What to know first
 
-- On some recent Kindles, `documents/My Clippings.txt` is no longer written (reported from firmware 5.19, observed on a Paperwhite in October 2026; not documented by Amazon and not true of every device).
+- On some recent Kindles, `documents/My Clippings.txt` is no longer written (reported from firmware 5.19, observed on a Paperwhite running 5.20.1 in October 2026; not documented by Amazon and not true of every device). The firmware version is in `system/version.txt`.
 - **Check first:** if the copy contains a `My Clippings.txt` that includes the user's latest highlights, hand them that file and stop. This tool is for when it is missing or out of date.
 - Highlights are stored as **positions only**, with no text, in two places:
   - `system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db` (SQLite, newer format)

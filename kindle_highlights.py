@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Rebuild Kindle highlights (text + notes) from a copy of the Kindle's storage.
 
-Why: on some recent Kindles (reported from firmware 5.19) the device no longer writes
+Why: on some recent Kindles (reported from firmware 5.19, observed on 5.20.1) the device no longer writes
 documents/My Clippings.txt. Highlights are stored as *positions* only, in
   system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db   (new)
   documents/**/<book>.sdr/*.{mbp1,yjr,azw3r}                          (legacy sidecars)
