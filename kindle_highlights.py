@@ -310,7 +310,9 @@ def main():
                 host["note"] = (host["note"] + " " + body).strip()
             else:
                 items.append(dict(start=a, end=a, text="", created=w, note=body))
-        if g.get("twin") and sum(1 for h in items if not h["text"]) > 0.1 * max(1, len(items)):
+        # sanity check for a borrowed copy; one-position spans are highlighted images and have no text
+        spans = [h for h in items if h["end"] > h["start"]]
+        if g.get("twin") and sum(1 for h in spans if not h["text"]) > 0.1 * max(1, len(spans)):
             report.append(f"MISSING    {n:4d} highlights  book file not on the Kindle: {g['hint']}")
             continue
         items = sorted((h for h in items if h["text"] or h["note"]), key=lambda h: h["start"])
