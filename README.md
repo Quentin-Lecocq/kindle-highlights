@@ -49,6 +49,15 @@ Output:
 - `highlights.json`: structured data (title, author, text, note, location, date)
 - `report.txt`: one line per book, `OK`, `MISSING` or `UNREADABLE`
 
+## Use it with Claude (optional)
+
+The [`skill/kindle-highlights`](skill/kindle-highlights/SKILL.md) folder is a ready-made skill: it teaches Claude the whole procedure, so you can plug in the Kindle and ask "get my Kindle highlights".
+
+- **Claude Code**: copy the folder to `~/.claude/skills/kindle-highlights/`.
+- **Claude app**: zip the `kindle-highlights` folder and add it in *Customize > Skills*.
+
+Claude will ask you to copy the two folders from the Kindle (or do it itself if it can control your desktop), run the tool, and give you the export. With a Readwise connector it can also send the highlights straight to Readwise.
+
 ## Limitations
 
 - **The book file must still be on the Kindle.** If you removed it, the highlight positions survive but the text cannot be recovered: the book is reported as `MISSING`. Download it again on the Kindle and re-run.
