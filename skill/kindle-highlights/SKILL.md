@@ -1,6 +1,6 @@
 ---
 name: kindle-highlights
-description: Recover Kindle highlights and notes when My Clippings.txt is missing (firmware 5.19+). Use when the user plugs in a Kindle, asks for their Kindle highlights, or mentions My Clippings.txt.
+description: Recover Kindle highlights and notes when My Clippings.txt is missing or out of date. Use when the user plugs in a Kindle, asks for their Kindle highlights, or mentions My Clippings.txt.
 ---
 
 # Kindle highlights
@@ -9,10 +9,11 @@ Recover the highlights and notes stored on a Kindle e-reader and hand them to th
 
 ## What to know first
 
-- Since firmware ~5.19 (summer 2026), Kindles no longer write `documents/My Clippings.txt`. Do not spend time looking for it.
+- On some recent Kindles, `documents/My Clippings.txt` is no longer written (reported from firmware 5.19, observed on a Paperwhite in October 2026; not documented by Amazon and not true of every device).
+- **Check first:** if the copy contains a `My Clippings.txt` that includes the user's latest highlights, hand them that file and stop. This tool is for when it is missing or out of date.
 - Highlights are stored as **positions only**, with no text, in two places:
-  - `system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db` (SQLite, current firmware)
-  - `documents/**/<book>.sdr/*.mbp1 | *.yjr | *.azw3r` (per-book sidecars, older firmware)
+  - `system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db` (SQLite, newer format)
+  - `documents/**/<book>.sdr/*.mbp1 | *.yjr | *.azw3r` (per-book sidecars, older format)
 - The text is recovered from the **book file still on the Kindle**. If the user removed the book from the device, its highlights cannot be resolved until the book is downloaded again.
 - Store purchases are DRM-protected. This tool does not read them and you must not try to remove DRM. Amazon already syncs those highlights to its cloud (and to services such as Readwise).
 - The tool is `kindle_highlights.py`, in the repository this skill ships with: `https://github.com/Quentin-Lecocq/kindle-highlights`.

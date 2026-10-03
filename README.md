@@ -1,13 +1,17 @@
 # kindle-highlights
 
-Recover your Kindle highlights and notes as text, even though recent Kindles no longer write `My Clippings.txt`.
+Recover your Kindle highlights and notes as text when your Kindle no longer gives you a usable `My Clippings.txt`.
 
 ## The problem
 
-Since firmware ~5.19 (summer 2026), Kindle e-readers stopped writing `documents/My Clippings.txt`, the plain-text file every highlight tool relied on. Highlights are now stored as **positions only**, with no text:
+On some recent Kindles, `documents/My Clippings.txt`, the plain-text file every highlight tool relied on, is no longer written. This has been reported from firmware 5.19 and was observed on a Kindle Paperwhite in October 2026. Amazon has not documented the change, and not every device behaves this way.
 
-- `system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db`: a SQLite database (current firmware)
-- `documents/**/<book>.sdr/*.mbp1 | *.yjr | *.azw3r`: per-book sidecar files (older firmware)
+**Check first:** if your Kindle still has an up-to-date `My Clippings.txt`, use that file. You don't need this tool.
+
+On affected devices, highlights are stored as **positions only**, with no text:
+
+- `system/ksdk/.annotations/amzn1.account.<ID>/ksdk_annotation_v1.db`: a SQLite database (newer format)
+- `documents/**/<book>.sdr/*.mbp1 | *.yjr | *.azw3r`: per-book sidecar files (older format)
 
 Amazon only syncs highlights of **store purchases** to its cloud (and so to Readwise). Highlights in personal documents (Send to Kindle, Calibre, USB) never leave the device.
 
@@ -62,7 +66,7 @@ Claude will ask you to copy the two folders from the Kindle (or do it itself if 
 
 - **The book file must still be on the Kindle.** If you removed it, the highlight positions survive but the text cannot be recovered: the book is reported as `MISSING`. Download it again on the Kindle and re-run.
 - Locations are approximate (`position / 150`), close to what the Kindle displays.
-- Tested on a Kindle Paperwhite in October 2026. Amazon may move things again; if highlights stop appearing, look for a new database under `system/ksdk/`.
+- Tested on one device: a Kindle Paperwhite, in October 2026. Other models and firmware versions may differ, and reports are welcome. Amazon may move things again; if highlights stop appearing, look for a new database under `system/ksdk/`.
 
 ## Credits
 
